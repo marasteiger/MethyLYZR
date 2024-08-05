@@ -6,9 +6,6 @@ MethyLYZR is a Naïve Bayesian framework for rapid brain tumor classification fr
 
 Please refer to the following publication for detailed information: Rapid brain tumor classification from sparse epigenomic data. 
 
-
-
-
 ## Requirements
 
 ### Hardware requirements
@@ -222,7 +219,9 @@ Follow these steps to replicate the demo:
     <img src="https://github.com/user-attachments/assets/d87f4780-813b-4ee5-b981-633f3593dd2e" alt="IEG14 Output Barplot" width="400"/>
 
 
+## Citation
 
+Authors, Title, Journal, DOI, PMID
 
 ## License
 
