@@ -216,10 +216,10 @@ Follow these steps to replicate the demo:
 
   - Ranked table with posteriors of all classes
 
-    <img src="outTable.png" alt="IEG14 Head Output Table" width="400"/>
+    <img src="https://github.com/user-attachments/assets/d6186c36-8edb-4aac-bf3f-12337544d257" alt="IEG14 Head Output Table" width="400"/>
   - Barplot with top 5 predicted classes
 
-    <img src="MethyLYZR_IEG14.png" alt="IEG14 Output Barplot" width="400"/>
+    <img src="https://github.com/user-attachments/assets/d87f4780-813b-4ee5-b981-633f3593dd2e" alt="IEG14 Output Barplot" width="400"/>
 
 
 
