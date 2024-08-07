@@ -50,6 +50,11 @@ Follow these steps to set up an environment with all required Python packages:
   pip install -r requirements.txt
   ```
 
+### Data Requirements
+
+Download the required datasets from **here** [Link to Data Repository](https://link-to-data.com). 
+
+Ensure the files are stored in the `/model` folder before running the model. 
 
 ## Recommended Preprocessing
 
@@ -106,7 +111,7 @@ python MethyLYZR.py -i sampleX.feather -s sampleX -o results
 ```
 
 #### Pre-trained model
-Components making up the trained Naïve Bayes model are deposited in `model/`:
+Components making up the trained Naïve Bayes model deposited in `model/`:
 - centroids (`betas_mean.feather`)
     - mean methylation profiles per class
 - feature weights (`W_RELIEF.feather`)
