@@ -52,7 +52,7 @@ Follow these steps to set up an environment with all required Python packages:
 
 ### Data Requirements
 
-Download the required datasets from [here](https://link-to-data.com). Ensure that the files are stored in the `/model` folder before running the model. 
+Download the required datasets from [here](https://nc.molgen.mpg.de/cloud/index.php/s/sJJds3gfsmba5K2). Ensure that the files are stored in the `/model` folder before running the model. 
 
 ## Recommended Preprocessing
 
