@@ -1,3 +1,5 @@
+![Python](https://img.shields.io/badge/Python-3.5%2B-blue)
+![GitHub last commit](https://img.shields.io/github/last-commit/marasteiger/MethyLYZR)
 
 # MethyLYZR
 
@@ -8,6 +10,19 @@ This repository provides code to apply the model and instructions on how to set 
 
 Please refer to our publication for detailed information: [Rapid brain tumor classification from sparse epigenomic data](https://doi/placeholder). 
 
+## Table of Contents
+- [Requirements](#requirements)
+  * [Hardware Requirements](#hardware-requirements)
+  * [Software Requirements](#software-requirements)
+- [Installation Guide](#installation-guide)
+  * [Setting Up the Environment](#setting-up-the-environment)
+  * [Data Requirements](#data-requirements)
+- [Recommended Preprocessing](#recommended-preprocessing)
+- [Running MethyLYZR for Tumor Classification (MethyLYZR.py)](#running-methylyzr-for-tumor-classification-methylyzrpy)
+  * [Demo](#demo)
+- [Citation](#citation)
+- [License](#license)
+    
 ## Requirements
 
 ### Hardware Requirements
@@ -156,7 +171,7 @@ This model encompasses 91 CNS + 3 metastasis classes.
     - a ranked list with the posterior probabilites for all classes as a CSV
     - a barplot showing the posterior probabilities of the top 5 hits as a PDF
 
-#### Posterior probabilities
+#### Posterior Probabilities
 
 The probabilities of predictions output by `MethyLYZR.py` range from 0 to 1 and reflect the certainty of the prediction.
 
