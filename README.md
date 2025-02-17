@@ -31,7 +31,7 @@ The Python package dependencies are listed in `requirements.txt`.
 
 ## Installation Guide
 
-Before proceeding with the installation, make sure that Python 3.5 or higher is installed. The code was developed and tested using Python version 3.7.11.
+Before proceeding with the installation, make sure that **Python 3.5 or higher** is installed. The code was developed and tested using Python version 3.7.11.
 
 ### Setting Up the Environment
 
@@ -61,12 +61,12 @@ Download the required datasets from [here](https://nc.molgen.mpg.de/cloud/index.
 #### Basecalling of Raw Nanopore signals
 First, the raw Nanopore signals should be processed into bases using the dorado basecall server from ONT (https://github.com/nanoporetech/dorado/) implemented in the sequencing software MinKnow, using the high-accuracy basecalling model with 5mC modifications (dna_r9.4.1_450bps_modbases_5mc_cg_hac.cfg). 
 
-The obtained reads should then be mapped to human reference genome GRCH38.p13 using, e.g., `minimap2`, and saved into BAM files. Information on modified bases should use the MM and ML tags defined in the Sequence Alignment/Map Optional Fields Specification.
+The obtained reads should then be mapped to human reference genome GRCH38.p13 using, e.g., `minimap2`, and saved into BAM files. Information on modified bases should use the **MM and ML tags** defined in the Sequence Alignment/Map Optional Fields Specification.
 
 #### Processing of BAM files (bam2feather.py)
 The extraction of methylation values from the BAM files into the required file format can be done using the provided Python script `bam2feather.py`. In short, the script first filters for primary alignments with a minimal mapping quality of 10, as reported by `minimap2`. Positions are further filtered on loci corresponding to a genomic position on the Illumina Infinium Human Methylation 450K BeadChip. The per read and CpG methylation probability is calculated using the SAM MM and ML tags. The output is written to disk as a feather file in the format required for MethyLYZR prediction (see below).
 
-:warning: Note: When intending to filter methylation calls by read start times, it is crucial to verify the accuracy of the read start times as provided by the basecaller. We have observed that discrepancies in software versions can lead to inaccuracies in the reconstructed timing of base calls. Therefore, we strongly advise a thorough validation of read start times against your basecalling software's output to ensure the reliability of methylation timing analysis. 
+:warning: Note: When intending to filter methylation calls by read start times, it is crucial to verify the accuracy of the read start times as provided by the basecaller. We have observed that discrepancies in software versions can lead to inaccuracies in the reconstructed timing of base calls. Therefore, we strongly advise a **thorough validation of read start times** against your basecalling software's output to ensure the reliability of methylation timing analysis. 
 
 ###### Input arguments for bam2feather.py
 
@@ -89,7 +89,7 @@ bam2feather.py -i input_dir_bams -s sample1 -r --sites data/EPIC_CpGannotation.b
 
 ###### Output Feather table format
 
-The `bam2feather.py` script outputs a **feather file**, which is the required **input format for `MethyLYZR.py`**.
+The `bam2feather.py` script outputs a **feather file**, in the following format:
 
 | Column | Description |
 | ------ | ------ |
@@ -103,7 +103,7 @@ The `bam2feather.py` script outputs a **feather file**, which is the required **
 | start_time | time in seconds after start of sequencing |
 | run_id | sequencing run identifier |
 
-📌 **This feather file format is the required input for `MethyLYZR.py`.**
+📌 **This feather file format is the required input format for `MethyLYZR.py`.**
 
 ## Running MethyLYZR for Tumor Classification (MethyLYZR.py)
 
@@ -160,9 +160,9 @@ This model encompasses 91 CNS + 3 metastasis classes.
 
 The probabilities of predictions output by `MethyLYZR.py` range from 0 to 1 and reflect the certainty of the prediction.
 
-- Scores > 0.6: Predictions with probabilities above 0.6 can be regarded as high-certainty predictions.
+- Scores > 0.6: Predictions with probabilities above 0.6 can be regarded as **high-certainty predictions**.
 
-- Scores <= 0.6: Predictions with scores below 0.5 are considered to have lower certainty. These results suggest that the model has lower confidence in the prediction, and they should be treated accordingly.
+- Scores <= 0.6: Predictions with scores below 0.6 are considered to have **lower certainty**. These results suggest that the model has lower confidence in the prediction, and they should be treated accordingly.
 
 
 
