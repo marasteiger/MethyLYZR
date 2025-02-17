@@ -10,7 +10,7 @@ This repository provides code to apply the model and instructions on how to set 
 
 Please refer to our publication for detailed information: [Rapid brain tumor classification from sparse epigenomic data](https://doi/placeholder). 
 
-## Table of Contents
+## :pushpin: Contents
 - [Requirements](#requirements)
   * [Hardware Requirements](#hardware-requirements)
   * [Software Requirements](#software-requirements)
@@ -118,7 +118,7 @@ The `bam2feather.py` script outputs a **feather file**, in the following format:
 | start_time | time in seconds after start of sequencing |
 | run_id | sequencing run identifier |
 
-📌 **This feather file format is the required input format for `MethyLYZR.py`.**
+:bulb: **This feather file format is the required input format for `MethyLYZR.py`.**
 
 ## Running MethyLYZR for Tumor Classification (MethyLYZR.py)
 
