@@ -57,12 +57,14 @@ Download the required datasets from [here](https://nc.molgen.mpg.de/cloud/index.
 ## Recommended Preprocessing
 
 #### Basecalling of raw Nanopore signals
-First, the raw Nanopore signals should be processed into bases using the dorado basecall server from ONT (https://github.com/nanoporetech/dorado/) implemented in the sequencing software MinKnow, using the high-accuracy basecalling model with 5mC modifications (dna_r9.4.1_450bps_modbases_5mc_cg_hac.cfg). The obtained reads should be mapped to human reference genome GRCH38.p13 e.g.using `minimap2` and saved into BAM files. Information on modified bases should use the MM and ML tags defined in the Sequence Alignment/Map Optional Fields Specification.
+First, the raw Nanopore signals should be processed into bases using the dorado basecall server from ONT (https://github.com/nanoporetech/dorado/) implemented in the sequencing software MinKnow, using the high-accuracy basecalling model with 5mC modifications (dna_r9.4.1_450bps_modbases_5mc_cg_hac.cfg). 
+
+The obtained reads should then be mapped to human reference genome GRCH38.p13 using, e.g., `minimap2`, and saved into BAM files. Information on modified bases should use the MM and ML tags defined in the Sequence Alignment/Map Optional Fields Specification.
 
 #### Processing of BAM files (bam2feather.py)
-The extraction of the methylation values from the BAM files into the required file format can be done using the provided Python script `bam2feather.py`. In short, the script first filters for primary alignments with a minimal mapping quality of 10, as reported by minimap2. Positions are further filtered on loci corresponding to a genomic position on the Illumina Infinium Human Methylation 450K BeadChip. The per read and CpG methylation probability is calculated using the SAM MM and ML tags. The output is written to disk as a feather file in the format required for MethyLYZR prediction (see below).
+The extraction of methylation values from the BAM files into the required file format can be done using the provided Python script `bam2feather.py`. In short, the script first filters for primary alignments with a minimal mapping quality of 10, as reported by `minimap2`. Positions are further filtered on loci corresponding to a genomic position on the Illumina Infinium Human Methylation 450K BeadChip. The per read and CpG methylation probability is calculated using the SAM MM and ML tags. The output is written to disk as a feather file in the format required for MethyLYZR prediction (see below).
 
-Note: When intending to filter methylation calls by the start times of reads, it is crucial to verify the accuracy of the read start times as provided by the basecaller. We have observed that discrepancies in software versions can lead to inaccuracies in the reconstructed timing of base calls. Therefore, we strongly advise a thorough validation of read start times against your basecalling software's output to ensure the reliability of methylation timing analysis. 
+:warning: Note: When intending to filter methylation calls by read start times, it is crucial to verify the accuracy of the read start times as provided by the basecaller. We have observed that discrepancies in software versions can lead to inaccuracies in the reconstructed timing of base calls. Therefore, we strongly advise a thorough validation of read start times against your basecalling software's output to ensure the reliability of methylation timing analysis. 
 
 ###### Input arguments for bam2feather.py
 
