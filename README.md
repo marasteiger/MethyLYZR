@@ -71,7 +71,7 @@ Note: When intending to filter methylation calls by the start times of reads, it
 | -i, --inputs | directory with BAM files (required)  |
 | -s, --sample | sample (file) name (required)  |
 | -o, --output | output directory (required) |
-| --sites | file with CpG-Sites-Annotation in bed format (required) |
+| --sites | file with CpG site annotation in BED format (required) |
 | -r, --recursive | recursive monitor subdirectories (default: False, action: store_true) |
 | --io_threads | number of threads used for io-handling (default: 2) |
 | --methylation_threads | number of threads used for methylation data extraction (default: 4) |
@@ -123,8 +123,8 @@ This model encompasses 91 CNS + 3 metastasis classes.
 
 | Parameter | Description |
 | ------ | ------ |
-| -i, --inputs | directory with BAM files (required)  |
-| -s, --sample | sample (file) name (required)  |
+| -i, --inputs | methylation data input feather file (required)  |
+| -s, --sample | sample name (required)  |
 | -o, --output | output directory (required) |
 | -c, --centroids | directory of pre-trained class centroids (default: 'model/betas_mean.feather')  |
 | -w, --weights | directory of pre-trained class centroids (default: 'model/W_RELIEF.feather')  |
@@ -175,10 +175,10 @@ This demo illustrates how to use MethyLYZR to process sample data and generate o
 
 Follow these steps to replicate the demo:
 
-1.  Run `methyLYZR.py` on the preprocessed data for test sample IEG14 (59.7 seconds)
+1.  Run `MethyLYZR.py` on the preprocessed data for test sample IEG14 (59.7 seconds)
 
   ```bash
-  python methyLYZR.py -i data/ONT_15min_runs/IEG14_4d93b1bb47f2b6315c552126160915afc2a89ca7.feather -s IEG14 -o results \
+  python MethyLYZR.py -i data/ONT_15min_runs/IEG14_4d93b1bb47f2b6315c552126160915afc2a89ca7.feather -s IEG14 -o results \
   -c model/betas_mean.feather -w model/W_RELIEF.feather -p model/class_priors.csv --minNoise 0.05 --methLowerBound 0.8 --methUpperBound 0.2
   ```
 
