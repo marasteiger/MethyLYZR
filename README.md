@@ -2,26 +2,28 @@
 # MethyLYZR
 
 
-MethyLYZR is a Naïve Bayesian framework for rapid brain tumor classification from sparse epigenomic data. This repository provides code to apply the model and instructions on how to set it up with a pre-trained Naïve Bayes model for classification of brain tumor samples from sparse methylation data into 91 CNS tumor classes defined by Capper et al. (2018) and 3 metastases classes (i.e., from breast cancer, lung cancer, and melanoma).
+MethyLYZR is a Naïve Bayesian framework for rapid brain tumor classification from sparse epigenomic data. 
 
-Please refer to the following publication for detailed information: Rapid brain tumor classification from sparse epigenomic data. 
+This repository provides code to apply the model and instructions on how to set it up with a pre-trained Naïve Bayes model for classification of brain tumor samples from sparse methylation data into 91 CNS tumor classes defined by Capper et al. (2018) and 3 metastases classes (i.e., from breast cancer, lung cancer, and melanoma).
+
+Please refer to our publication for detailed information: [Rapid brain tumor classification from sparse epigenomic data](https://doi/placeholder). 
 
 ## Requirements
 
-### Hardware requirements
+### Hardware Requirements
 
 `MethyLYZR.py` requires a 'standard' personal computer with minimum 4 GB RAM or a compute server. While `MethyLYZR.py` does not utilize parallel processing and can technically run on systems with a single-core CPU, we recommend a minimum of a dual-core processor to ensure the system remains responsive for multitasking. When working with large datasets, additional memory is advisable. The runtimes stated below are generated using a computer (Apple iMac) with 64 GB RAM, 10 cores@3 GHz.
 
-### Software requirements
+### Software Requirements
 
-#### OS requirements
+#### OS Requirements
 
 The code has been tested on the following systems:
 
 - macOS 13.2.1
 - Internal Linux distribution
 
-#### Python dependencies
+#### Python Dependencies
 
 The Python package dependencies are listed in `requirements.txt`.
 
@@ -35,7 +37,7 @@ Before proceeding with the installation, make sure that Python 3.5 or higher is 
 
 Follow these steps to set up an environment with all required Python packages:
 
-1. Create a virtual environment for isolation of the dependecies
+1. Create a virtual environment for isolation of the dependencies
   ``` bash
   python -m venv venv
   ```
@@ -56,7 +58,7 @@ Download the required datasets from [here](https://nc.molgen.mpg.de/cloud/index.
 
 ## Recommended Preprocessing
 
-#### Basecalling of raw Nanopore signals
+#### Basecalling of Raw Nanopore signals
 First, the raw Nanopore signals should be processed into bases using the dorado basecall server from ONT (https://github.com/nanoporetech/dorado/) implemented in the sequencing software MinKnow, using the high-accuracy basecalling model with 5mC modifications (dna_r9.4.1_450bps_modbases_5mc_cg_hac.cfg). 
 
 The obtained reads should then be mapped to human reference genome GRCH38.p13 using, e.g., `minimap2`, and saved into BAM files. Information on modified bases should use the MM and ML tags defined in the Sequence Alignment/Map Optional Fields Specification.
@@ -87,6 +89,7 @@ bam2feather.py -i input_dir_bams -s sample1 -r --sites data/EPIC_CpGannotation.b
 
 ###### Output Feather table format
 
+The `bam2feather.py` script outputs a **feather file**, which is the required **input format for `MethyLYZR.py`**.
 
 | Column | Description |
 | ------ | ------ |
@@ -100,18 +103,18 @@ bam2feather.py -i input_dir_bams -s sample1 -r --sites data/EPIC_CpGannotation.b
 | start_time | time in seconds after start of sequencing |
 | run_id | sequencing run identifier |
 
+📌 **This feather file format is the required input for `MethyLYZR.py`.**
 
+## Running MethyLYZR for Tumor Classification (MethyLYZR.py)
 
-## Tumor class prediction (MethyLYZR.py)
-
-The Python script `MethyLYZR.py` is used to apply the pre-trained Naïve Bayes model for prediction of CNS tumor class to a given Nanopore sample.
+To classify a given Nanopore sample using the pre-trained Naïve Bayes model for CNS tumor class prediction, use: 
 
 ```bash
 python MethyLYZR.py -i sampleX.feather -s sampleX -o results
 ```
 
-#### Pre-trained model
-Components making up the trained Naïve Bayes model deposited in `model/`:
+#### Pre-trained Model
+Components making up the trained Naïve Bayes model stored in `model/`:
 - centroids (`betas_mean.feather`)
     - mean methylation profiles per class
 - feature weights (`W_RELIEF.feather`)
@@ -121,7 +124,7 @@ Components making up the trained Naïve Bayes model deposited in `model/`:
 
 This model encompasses 91 CNS + 3 metastasis classes.
 
-#### Input arguments for MethyLYZR.py
+#### Input Arguments for MethyLYZR.py
 
 | Parameter | Description |
 | ------ | ------ |
@@ -143,7 +146,7 @@ This model encompasses 91 CNS + 3 metastasis classes.
 1.  reads the pre-trained model (centroids + feature weights + class priors)
 2.  loads sample from corresponding feather file
 3.  preprocesses the methylation measurements
-    - filtering for (methylation probabilty < methUpperBound) OR (methylation probabilty > methLowerBound)
+    - filtering for (methylation probability < methUpperBound) OR (methylation probabilty > methLowerBound)
     - filtering for number of features per read <= 10
     - calculating noise
     - calculating read weights
@@ -177,7 +180,7 @@ This demo illustrates how to use MethyLYZR to process sample data and generate o
 
 Follow these steps to replicate the demo:
 
-1.  Run `MethyLYZR.py` on the preprocessed data for test sample IEG14 (59.7 seconds)
+1.  Run `MethyLYZR.py` on the preprocessed data for test sample IEG14 (:hourglass_flowing_sand: Runtime: 59.7 seconds)
 
   ```bash
   python MethyLYZR.py -i data/ONT_15min_runs/IEG14_4d93b1bb47f2b6315c552126160915afc2a89ca7.feather -s IEG14 -o results \
@@ -216,10 +219,10 @@ Follow these steps to replicate the demo:
 
 2. Review the output generated by this demo.
 
-  - Ranked table with posteriors of all classes
+  - :clipboard: Ranked table with posteriors of all classes
 
     <img src="https://github.com/user-attachments/assets/d6186c36-8edb-4aac-bf3f-12337544d257" alt="IEG14 Head Output Table" width="400"/>
-  - Barplot with top 5 predicted classes
+  - :bar_chart: Barplot with top 5 predicted classes
 
     <img src="https://github.com/user-attachments/assets/d87f4780-813b-4ee5-b981-633f3593dd2e" alt="IEG14 Output Barplot" width="400"/>
 
