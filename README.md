@@ -257,7 +257,7 @@ Follow these steps to replicate the demo:
 
 ## Citation
 
-Authors, Title, Journal, DOI, PMID
+Brändl, B., Steiger, M., Kubelt, C., Rohrandt, C., Zhu, Z., Evers, M., Wang, G., Schuldt, B., Afflerbach, A.K., Wong, D., Lum, A., Halldorsson, S., Djirackor, L., Leske, H., Magadeeva, S., Smičius, R., Quedenau, C., Schmidt, N.O., Schüller, U., Vik-Mo, E.O., Proescholdt, M., Riemenschneider, M.J., Zadeh, G., Ammerpohl, O., Yip, S., Synowitz, M., van Bömmel, A., Kretzmer, H., & Müller, F.-J. Rapid brain tumor classification from sparse epigenomic data. Nat. Med. (2025). https://doi.org/10.1038/s41591-024-03435-3
 
 ## License
 
