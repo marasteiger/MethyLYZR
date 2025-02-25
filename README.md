@@ -9,7 +9,7 @@ MethyLYZR is a Naïve Bayesian framework for rapid brain tumor classification fr
 
 This repository provides code to apply the model and instructions on how to set it up with a pre-trained Naïve Bayes model for classification of brain tumor samples from sparse methylation data into 91 CNS tumor classes defined by Capper et al. (2018) and 3 metastases classes (i.e., from breast cancer, lung cancer, and melanoma).
 
-Please refer to our publication for detailed information: [Rapid brain tumor classification from sparse epigenomic data](https://doi/placeholder). 
+Please refer to our publication for detailed information: [Rapid brain tumor classification from sparse epigenomic data]([https://doi/placeholder](https://doi.org/10.1038/s41591-024-03435-3)). 
 
 ## :pushpin: Contents
 - [Requirements](#requirements)
@@ -21,6 +21,8 @@ Please refer to our publication for detailed information: [Rapid brain tumor cla
 - [Recommended Preprocessing](#recommended-preprocessing)
 - [Running MethyLYZR for Tumor Classification (MethyLYZR.py)](#running-methylyzr-for-tumor-classification-methylyzrpy)
   * [Demo](#demo)
+- [Data Availability](#data-availability)
+- [Intraoperative Workflow Video](#intraoperative-workflow-video)
 - [Citation](#citation)
 - [License](#license)
     
@@ -242,6 +244,16 @@ Follow these steps to replicate the demo:
 
     <img src="https://github.com/user-attachments/assets/d87f4780-813b-4ee5-b981-633f3593dd2e" alt="IEG14 Output Barplot" width="400"/>
 
+## Data Availability 
+
+[This dataset](https://doi.org/10.5281/zenodo.13236096) provides methylation data from ONT (R9 and R10) and PacBio sequencing, stored in **feather format**. These data were generated from brain tumor biopsies and can be used **directly as input** for `MethyLYZR.py`, or filtered by timestamps to **post-hoc simulate shorter sequencing runs**.  
+
+## Intraoperative Workflow Video
+
+[This video](https://doi.org/10.5281/zenodo.13324497) provides a **showcase of the intraoperative setup** with real-time recordings of 10 clinical demonstrator samples processed under **intraoperative clinical conditions** at the Point-of-Care. It demonstrates the time required for:
+- DNA isolation
+- Library preparation
+- Sequencing
 
 ## Citation
 
