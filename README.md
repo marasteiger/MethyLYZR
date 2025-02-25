@@ -9,7 +9,7 @@ MethyLYZR is a Naïve Bayesian framework for rapid brain tumor classification fr
 
 This repository provides code to apply the model and instructions on how to set it up with a pre-trained Naïve Bayes model for classification of brain tumor samples from sparse methylation data into 91 CNS tumor classes defined by Capper et al. (2018) and 3 metastases classes (i.e., from breast cancer, lung cancer, and melanoma).
 
-Please refer to our publication for detailed information: [Rapid brain tumor classification from sparse epigenomic data]([https://doi/placeholder](https://doi.org/10.1038/s41591-024-03435-3)). 
+Please refer to our publication for detailed information: [Rapid brain tumor classification from sparse epigenomic data](https://doi/placeholder](https://doi.org/10.1038/s41591-024-03435-3)). 
 
 ## :pushpin: Contents
 - [Requirements](#requirements)
