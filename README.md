@@ -1,5 +1,7 @@
+![DOI](https://img.shields.io/badge/DOI-10.1038/s41591-024-03435-3-blue)
 ![Python](https://img.shields.io/badge/Python-3.5%2B-blue)
 ![GitHub last commit](https://img.shields.io/github/last-commit/marasteiger/MethyLYZR)
+
 
 # MethyLYZR
 
