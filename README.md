@@ -1,4 +1,4 @@
-[![DOI](https://img.shields.io/badge/DOI-10.1038%2Fs41591%E2%80%93025%E2%80%9303536%E2%80%937-blue)](https://doi.org/10.1038/s41591-025-03536-7)
+[![DOI](https://img.shields.io/badge/DOI-10.1038%2Fs41591%E2%80%93024%E2%80%9303435%E2%80%933-blue)](https://doi.org/10.1038/s41591-024-03435-3)
 ![Python](https://img.shields.io/badge/Python-3.5%2B-blue)
 ![GitHub last commit](https://img.shields.io/github/last-commit/marasteiger/MethyLYZR)
 
