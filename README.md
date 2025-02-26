@@ -11,6 +11,8 @@ This repository provides code to apply the model and instructions on how to set 
 
 Please refer to our publication for detailed information: [Rapid brain tumor classification from sparse epigenomic data](https://doi/placeholder](https://doi.org/10.1038/s41591-024-03435-3)). 
 
+![fig1b](img/fig1b.png)
+
 ## :pushpin: Contents
 - [Requirements](#requirements)
   * [Hardware Requirements](#hardware-requirements)
@@ -251,7 +253,7 @@ Follow these steps to replicate the demo:
 ## Intraoperative Workflow Video
 
 [This video](https://doi.org/10.5281/zenodo.13324497) provides a **showcase of the intraoperative setup** with real-time recordings of 10 clinical demonstrator samples processed under **intraoperative clinical conditions** at the Point-of-Care. It demonstrates the time required for:
-- DNA isolation
+- DNA extraction
 - Library preparation
 - Sequencing
 
