@@ -110,17 +110,13 @@ def predict_sample(sample_id, sample_dir, centroids, W, class_frequency, min_noi
 
     log(f"Sample: {sample_id}", True)
 
-    # print("Sample: " + sample_id)
-
     log(f"Loading data from {sample_dir}\n")
 
-    # print("     Loading data...")
     # methylation matrix of dimension (no. probes) x 9
     test_sample = pd.read_feather(sample_dir)  # read sample
     test_sample = test_sample.loc[test_sample["epic_id"].isin(centroids.index)]  # filter for CpGs in reference centroids
 
     log("Preprocessing data...")
-    # print("     Preprocess data...")
     log(" - Filtering values...")
     test_sample = test_sample[(test_sample["methylation"] <= methylation_upper_bound) | (test_sample["methylation"] >= methylation_lower_bound)]  # filter for methylation probability >0.8 or <0.2
     test_sample = test_sample[(test_sample["scores_per_read"] <= 10)]  # filter for number of features per read <= 10
@@ -139,14 +135,11 @@ def predict_sample(sample_id, sample_dir, centroids, W, class_frequency, min_noi
     binary_vec = (binary_vec >= 0.5).astype(int)
 
     log("Predicting classes...\n")
-    # print("     Predict data...")
     # call prediction function to get class probabilities from methylation rates
     prediction_list = predict_from_fingerprint(newX=binary_vec, feature_ids=test_sample["epic_id"], centroids=centroids,
                                                W=W, noise=noise, prior=class_frequency, read_weights=read_weights)
 
     class_posteriors = prediction_list["posterior"].sort_values(ascending=False)
-
-    # print("     Done.")
 
     return class_posteriors
 
